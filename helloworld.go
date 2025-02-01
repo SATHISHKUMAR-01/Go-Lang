@@ -4,8 +4,34 @@ import (
 	"fmt"
 )
 
+// Structure
+
+type Person struct {
+	name string
+	age  int
+}
+
+// Multiple Return Values
+func divAndMul(x int, y int) (mul int, div int) {
+	mul = x * y
+	div = x / y
+	return
+}
+
+// Named Return Values
+func sub(x int, y int) (result int) {
+	result = x - y
+	return
+}
+
+func add(x int, y int) int {
+	return x + y
+}
+
+func helloMessage(name string) {
+	fmt.Println("Hello from , ", name, " !!!")
+}
 func main() {
-	fmt.Println("Hello World!")
 
 	// Variables
 	var num1 int = 1 // var <variable_name> datatype
@@ -82,4 +108,68 @@ func main() {
 	fmt.Printf("myslice3=%v\n", myslice3)
 	fmt.Printf("length=%d\n", len(myslice3))
 	fmt.Printf("capacity=%d\n", cap(myslice3))
+
+	// if condition
+
+	numX := 20
+	numY := 30
+
+	if numX > numY {
+		fmt.Println("NumX is greater")
+	} else if numY > numX {
+		fmt.Println("NumY is greater")
+	} else {
+		fmt.Println("Both are same")
+	}
+
+	mark := 97
+
+	switch mark {
+	case 99, 100:
+		fmt.Println("Grade A")
+	case 98:
+		fmt.Println("Grade B")
+	default:
+		fmt.Println("Grade C")
+	}
+
+	// for loop
+
+	for i := 0; i <= 100; i++ {
+		fmt.Println(i)
+	}
+
+	// range in loop
+
+	fruits := [3]string{"apple", "orange", "banana"}
+	for idx, val := range fruits {
+		fmt.Printf("%v\t%v\n", idx, val)
+	}
+
+	for _, val := range fruits {
+		fmt.Printf("%v\n", val)
+	}
+
+	for idx, _ := range fruits {
+		fmt.Printf("%v\n", idx)
+	}
+
+	// Functions
+	helloMessage("Sathish")
+
+	sum := add(10, 20)
+	fmt.Println(sum)
+
+	fmt.Println(sub(10, 20))
+
+	_, div := divAndMul(20, 10)
+	fmt.Println(div)
+
+	// Struct
+
+	var student Person
+	student.name = "SK"
+	student.age = 21
+
+	fmt.Println("Name : ", student.name, " Age : ", student.age)
 }
