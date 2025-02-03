@@ -241,8 +241,6 @@ func main() {
 	}
 	value("Anonymous functions")
 
-	// Defer Keyword in Golang
-
 }
 
 func sumVariadic(nums ...int) int {
