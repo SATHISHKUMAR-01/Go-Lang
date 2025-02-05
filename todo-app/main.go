@@ -4,8 +4,8 @@ import (
 	"bufio"
 	"fmt"
 	"os"
-	"strings",
 	"strconv"
+	"strings"
 )
 
 type Task struct {
@@ -55,11 +55,13 @@ func markTaskCompleted(tasks *[]Task) {
 
 	taskId, err := parseTaskIndex(taskIdStr)
 
-	if err != nil || taskId < 1 || taskIndex > len(*tasks) {
+	if err != nil || taskId < 1 || taskId > len(*tasks) {
 		fmt.Println("Invalid task number. Please try again.")
 		return
 	}
 
+	(*tasks)[taskId-1].status = true
+	fmt.Println("Task marked as completed.")
 }
 
 func parseTaskIndex(input string) (int, error) {
